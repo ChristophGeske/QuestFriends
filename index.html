@@ -3,50 +3,224 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QuestFriends</title>
+    <title>QuestFriends by VR_Wizard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
     <style>
+        :root {
+            --primary: #5c2d91;
+            --secondary: #0078d4;
+            --background: #f0f2f5;
+            --card-bg: #ffffff;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--background);
             margin: 0;
             padding: 20px;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #1a1a2e);
+            color: white;
         }
+
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin: 0;
+            animation: fadeInDown 1s;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+            animation: fadeIn 1s 0.5s both;
+        }
+
+        .games-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
         .game {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-            background-color: #fff;
-            padding: 10px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeIn 0.5s;
+            position: relative;
         }
+
+        .game:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
         .game img {
-            width: 100px;
-            height: 100px;
-            margin-right: 20px;
-            border-radius: 8px;
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
         }
-        .game a {
+
+        .game-info {
+            padding: 20px;
+        }
+
+        .game-title {
+            font-size: 1.5em;
+            margin: 0 0 10px 0;
+            color: white;
+        }
+
+        .referral-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
             text-decoration: none;
-            color: #333;
-            font-size: 18px;
+            border-radius: 25px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 10px;
+        }
+
+        .referral-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .click-counter {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.9em;
+        }
+
+        /* Admin Panel */
+        .admin-panel {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .admin-panel.visible {
+            display: block;
+        }
+
+        .admin-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
-    <h1>Welcome to QuestFriends</h1>
-    <p>Share and discover referral codes for your favorite games!</p>
-
-    <div class="game">
-        <img src="path/to/game1-image.jpg" alt="Game 1">
-        <a href="https://example.com/game1-referral-code" target="_blank">Game 1</a>
+    <div class="header">
+        <h1>QuestFriends</h1>
+        <p>Get 15% off on Meta Quest Games with our referral codes!</p>
     </div>
 
-    <div class="game">
-        <img src="path/to/game2-image.jpg" alt="Game 2">
-        <a href="https://example.com/game2-referral-code" target="_blank">Game 2</a>
+    <div class="games-container">
+        <div class="game">
+            <span class="click-counter">Clicks: <span id="counter1">0</span></span>
+            <img src="/api/placeholder/400/320" alt="Beat Saber">
+            <div class="game-info">
+                <h2 class="game-title">Beat Saber</h2>
+                <p>Rhythm game with lightsabers!</p>
+                <a href="#" class="referral-btn" data-counter="counter1">Get 15% Off</a>
+            </div>
+        </div>
+
+        <div class="game">
+            <span class="click-counter">Clicks: <span id="counter2">0</span></span>
+            <img src="/api/placeholder/400/320" alt="Superhot VR">
+            <div class="game-info">
+                <h2 class="game-title">Superhot VR</h2>
+                <p>Time moves when you move!</p>
+                <a href="#" class="referral-btn" data-counter="counter2">Get 15% Off</a>
+            </div>
+        </div>
+
+        <div class="game">
+            <span class="click-counter">Clicks: <span id="counter3">0</span></span>
+            <img src="/api/placeholder/400/320" alt="Population: One">
+            <div class="game-info">
+                <h2 class="game-title">Population: One</h2>
+                <p>VR Battle Royale!</p>
+                <a href="#" class="referral-btn" data-counter="counter3">Get 15% Off</a>
+            </div>
+        </div>
     </div>
 
-    <!-- Add more games as needed -->
+    <div class="admin-panel" id="adminPanel">
+        <button class="admin-btn" onclick="resetCounters()">Reset All Counters</button>
+    </div>
+
+    <script>
+        // Initialize counters from localStorage or set to 0
+        function initializeCounters() {
+            document.querySelectorAll('[id^="counter"]').forEach(counter => {
+                counter.textContent = localStorage.getItem(counter.id) || 0;
+            });
+        }
+
+        // Increment counter when referral link is clicked
+        document.querySelectorAll('.referral-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const counterId = e.target.dataset.counter;
+                const counterEl = document.getElementById(counterId);
+                const newCount = parseInt(counterEl.textContent) + 1;
+                counterEl.textContent = newCount;
+                localStorage.setItem(counterId, newCount);
+            });
+        });
+
+        // Admin panel toggle (you should add proper authentication)
+        let isAdmin = false;
+        document.addEventListener('keydown', (e) => {
+            // Press 'Ctrl + A' to toggle admin panel
+            if (e.ctrlKey && e.key === 'a') {
+                e.preventDefault();
+                isAdmin = !isAdmin;
+                document.getElementById('adminPanel').classList.toggle('visible');
+            }
+        });
+
+        // Reset all counters (admin only)
+        function resetCounters() {
+            if (!isAdmin) return;
+            document.querySelectorAll('[id^="counter"]').forEach(counter => {
+                counter.textContent = 0;
+                localStorage.setItem(counter.id, 0);
+            });
+        }
+
+        // Initialize counters on page load
+        initializeCounters();
+    </script>
 </body>
 </html>
