@@ -108,7 +108,6 @@
             font-size: 0.9em;
         }
 
-        /* Admin Panel */
         .admin-panel {
             position: fixed;
             bottom: 20px;
@@ -147,44 +146,45 @@
     <div class="games-container">
         <div class="game">
             <span class="click-counter">Clicks: <span id="counter1">0</span></span>
-            <img src="images/beat-saber.jpg" alt="Beat Saber">
+            <img src="images/Beat_Saber.png" alt="Beat Saber">
             <div class="game-info">
                 <h2 class="game-title">Beat Saber</h2>
                 <p>Rhythm game with lightsabers!</p>
-                <a href="#" class="referral-btn" data-counter="counter1">Get 15% Off</a>
+                <a href="https://www.oculus.com/appreferrals/VR_Wizards/2637179839719680/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral" class="referral-btn" data-counter="counter1">Get 15% Off</a>
             </div>
         </div>
 
         <div class="game">
             <span class="click-counter">Clicks: <span id="counter2">0</span></span>
-            <img src="images/superhot-vr.jpg" alt="Superhot VR">
+            <img src="images/Assassin's_Creed_Nexus.png" alt="Assassin's Creed Nexus">
             <div class="game-info">
-                <h2 class="game-title">Superhot VR</h2>
-                <p>Time moves when you move!</p>
-                <a href="#" class="referral-btn" data-counter="counter2">Get 15% Off</a>
+                <h2 class="game-title">Assassin's Creed Nexus</h2>
+                <p>Become an assassin in VR!</p>
+                <a href="https://www.oculus.com/appreferrals/VR_Wizards/5791805387504648/?utm_source=oculus&utm_location=3&utm_parent=frl&utm_medium=app_referral" class="referral-btn" data-counter="counter2">Get 15% Off</a>
             </div>
         </div>
 
         <div class="game">
             <span class="click-counter">Clicks: <span id="counter3">0</span></span>
-            <img src="images/population-one.jpg" alt="Population: One">
+            <img src="images/Asgard's_Wrath_2.png" alt="Asgard's Wrath 2">
             <div class="game-info">
-                <h2 class="game-title">Population: One</h2>
-                <p>VR Battle Royale!</p>
-                <a href="#" class="referral-btn" data-counter="counter3">Get 15% Off</a>
+                <h2 class="game-title">Asgard's Wrath 2</h2>
+                <p>Epic VR RPG Adventure!</p>
+                <a href="https://www.meta.com/appreferrals/VR_Wizards/3535742746525560/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral/&utm_content=copy" class="referral-btn" data-counter="counter3">Get 15% Off</a>
             </div>
         </div>
 
-        <!-- New Batman Game Section -->
         <div class="game">
             <span class="click-counter">Clicks: <span id="counter4">0</span></span>
-            <img src="images/batman.jpg" alt="Batman">
+            <img src="images/Arizona_Sunshine_2.png" alt="Arizona Sunshine 2">
             <div class="game-info">
-                <h2 class="game-title">Batman</h2>
-                <p>Become the Dark Knight in this thrilling VR experience!</p>
-                <a href="#" class="referral-btn" data-counter="counter4">Get 15% Off</a>
+                <h2 class="game-title">Arizona Sunshine 2</h2>
+                <p>Survive the zombie apocalypse!</p>
+                <a href="https://www.oculus.com/appreferrals/VR_Wizards/6212696172191478/?utm_source=oculus&utm_location=3&utm_parent=frl&utm_medium=app_referral" class="referral-btn" data-counter="counter4">Get 15% Off</a>
             </div>
         </div>
+
+        <!-- Add more game entries as needed -->
     </div>
 
     <div class="admin-panel" id="adminPanel">
@@ -192,14 +192,12 @@
     </div>
 
     <script>
-        // Initialize counters from localStorage or set to 0
         function initializeCounters() {
             document.querySelectorAll('[id^="counter"]').forEach(counter => {
                 counter.textContent = localStorage.getItem(counter.id) || 0;
             });
         }
 
-        // Increment counter when referral link is clicked
         document.querySelectorAll('.referral-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const counterId = e.target.dataset.counter;
@@ -210,10 +208,8 @@
             });
         });
 
-        // Admin panel toggle (you should add proper authentication)
         let isAdmin = false;
         document.addEventListener('keydown', (e) => {
-            // Press 'Ctrl + A' to toggle admin panel
             if (e.ctrlKey && e.key === 'a') {
                 e.preventDefault();
                 isAdmin = !isAdmin;
@@ -221,7 +217,6 @@
             }
         });
 
-        // Reset all counters (admin only)
         function resetCounters() {
             if (!isAdmin) return;
             document.querySelectorAll('[id^="counter"]').forEach(counter => {
@@ -230,7 +225,6 @@
             });
         }
 
-        // Initialize counters on page load
         initializeCounters();
     </script>
 </body>
