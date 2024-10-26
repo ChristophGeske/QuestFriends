@@ -26,7 +26,7 @@
         .header {
             text-align: center;
             padding: 40px 20px;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
         }
 
         .header h1 {
@@ -39,6 +39,50 @@
             font-size: 1.2em;
             opacity: 0.9;
             animation: fadeIn 1s 0.5s both;
+        }
+
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            padding: 0 20px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1.1em;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+        }
+
+        .search-input:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 15px rgba(92, 45, 145, 0.5);
+        }
+
+        .featured-games {
+            max-width: 1200px;
+            margin: 0 auto 40px;
+            padding: 20px;
+        }
+
+        .featured-title {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .featured-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
         }
 
         .games-container {
@@ -58,6 +102,11 @@
             transition: transform 0.3s, box-shadow 0.3s;
             animation: fadeIn 0.5s;
             position: relative;
+        }
+
+        .game.featured {
+            background: rgba(92, 45, 145, 0.2);
+            border: 2px solid var(--primary);
         }
 
         .game:hover {
@@ -135,6 +184,14 @@
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        .no-results {
+            text-align: center;
+            grid-column: 1 / -1;
+            padding: 40px;
+            font-size: 1.2em;
+            color: rgba(255, 255, 255, 0.7);
+        }
     </style>
 </head>
 <body>
@@ -143,48 +200,19 @@
         <p>Get 15% off on Meta Quest Games with our referral codes!</p>
     </div>
 
-    <div class="games-container">
-        <div class="game">
-            <span class="click-counter">Clicks: <span id="counter1">0</span></span>
-            <img src="images/Beat_Saber.png" alt="Beat Saber">
-            <div class="game-info">
-                <h2 class="game-title">Beat Saber</h2>
-                <p>Rhythm game with lightsabers!</p>
-                <a href="https://www.oculus.com/appreferrals/VR_Wizards/2637179839719680/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral" class="referral-btn" data-counter="counter1">Get 15% Off</a>
-            </div>
-        </div>
+    <div class="search-container">
+        <input type="text" class="search-input" placeholder="Search for games..." id="searchInput">
+    </div>
 
-        <div class="game">
-            <span class="click-counter">Clicks: <span id="counter2">0</span></span>
-            <img src="images/Assassin's_Creed_Nexus.png" alt="Assassin's Creed Nexus">
-            <div class="game-info">
-                <h2 class="game-title">Assassin's Creed Nexus</h2>
-                <p>Become an assassin in VR!</p>
-                <a href="https://www.oculus.com/appreferrals/VR_Wizards/5791805387504648/?utm_source=oculus&utm_location=3&utm_parent=frl&utm_medium=app_referral" class="referral-btn" data-counter="counter2">Get 15% Off</a>
-            </div>
+    <div class="featured-games">
+        <h2 class="featured-title">Featured Games</h2>
+        <div class="featured-container" id="featuredContainer">
+            <!-- Featured games will be dynamically added here -->
         </div>
+    </div>
 
-        <div class="game">
-            <span class="click-counter">Clicks: <span id="counter3">0</span></span>
-            <img src="images/Asgard's_Wrath_2.png" alt="Asgard's Wrath 2">
-            <div class="game-info">
-                <h2 class="game-title">Asgard's Wrath 2</h2>
-                <p>Epic VR RPG Adventure!</p>
-                <a href="https://www.meta.com/appreferrals/VR_Wizards/3535742746525560/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral/&utm_content=copy" class="referral-btn" data-counter="counter3">Get 15% Off</a>
-            </div>
-        </div>
-
-        <div class="game">
-            <span class="click-counter">Clicks: <span id="counter4">0</span></span>
-            <img src="images/Arizona_Sunshine_2.png" alt="Arizona Sunshine 2">
-            <div class="game-info">
-                <h2 class="game-title">Arizona Sunshine 2</h2>
-                <p>Survive the zombie apocalypse!</p>
-                <a href="https://www.oculus.com/appreferrals/VR_Wizards/6212696172191478/?utm_source=oculus&utm_location=3&utm_parent=frl&utm_medium=app_referral" class="referral-btn" data-counter="counter4">Get 15% Off</a>
-            </div>
-        </div>
-
-        <!-- Add more game entries as needed -->
+    <div class="games-container" id="gamesContainer">
+        <!-- Games will be dynamically added here -->
     </div>
 
     <div class="admin-panel" id="adminPanel">
@@ -192,20 +220,128 @@
     </div>
 
     <script>
+        // Game data array with all games
+        const games = [
+            {
+                title: "Asgard's Wrath 2",
+                image: "images/Asgard's_Wrath_2.png",
+                description: "Epic VR RPG Adventure!",
+                link: "https://www.meta.com/appreferrals/VR_Wizards/3535742746525560/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral/&utm_content=copy",
+                featured: true
+            },
+            {
+                title: "Assassin's Creed Nexus",
+                image: "images/Assassin's_Creed_Nexus.png",
+                description: "Become an assassin in VR!",
+                link: "https://www.oculus.com/appreferrals/VR_Wizards/5791805387504648/?utm_source=oculus&utm_location=3&utm_parent=frl&utm_medium=app_referral",
+                featured: true
+            },
+            {
+                title: "Arizona Sunshine 2",
+                image: "images/Arizona_Sunshine_2.png",
+                description: "Survive the zombie apocalypse!",
+                link: "https://www.oculus.com/appreferrals/VR_Wizards/6212696172191478/?utm_source=oculus&utm_location=3&utm_parent=frl&utm_medium=app_referral"
+            },
+            {
+                title: "Batman",
+                image: "images/batman.jpg",
+                description: "Become the Dark Knight in VR!",
+                link: "https://www.oculus.com/appreferrals/VR_Wizards/5302178529865980/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
+            },
+            {
+                title: "Beat Saber",
+                image: "images/Beat_Saber.png",
+                description: "Rhythm game with lightsabers!",
+                link: "https://www.oculus.com/appreferrals/VR_Wizards/2637179839719680/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral",
+                featured: true
+            },
+            {
+                title: "Blade & Sorcery",
+                image: "images/Blade_&_Sorcery_Nomad.png",
+                description: "Medieval fantasy sandbox combat!",
+                link: "https://www.oculus.com/appreferrals/christoph.geske.3/2031826350263349/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
+            },
+            // Add all other games here...
+            {
+                title: "Walking Dead",
+                image: "images/The_Walking_Dead.png",
+                description: "Survive in the zombie apocalypse!",
+                link: "https://www.oculus.com/appreferrals/VR_Wizards/2897337400373711/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
+            }
+        ];
+
+        // Sort games alphabetically
+        games.sort((a, b) => a.title.localeCompare(b.title));
+
+        function createGameElement(game, counter) {
+            return `
+                <div class="game ${game.featured ? 'featured' : ''}">
+                    <span class="click-counter">Clicks: <span id="counter${counter}">0</span></span>
+                    <img src="${game.image}" alt="${game.title}">
+                    <div class="game-info">
+                        <h2 class="game-title">${game.title}</h2>
+                        <p>${game.description}</p>
+                        <a href="${game.link}" class="referral-btn" data-counter="counter${counter}">Get 15% Off</a>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderGames(filteredGames = games) {
+            const featuredContainer = document.getElementById('featuredContainer');
+            const gamesContainer = document.getElementById('gamesContainer');
+            
+            // Clear containers
+            featuredContainer.innerHTML = '';
+            gamesContainer.innerHTML = '';
+
+            if (filteredGames.length === 0) {
+                gamesContainer.innerHTML = '<div class="no-results">No games found matching your search</div>';
+                return;
+            }
+
+            let counter = 1;
+
+            // Render featured games
+            filteredGames
+                .filter(game => game.featured)
+                .forEach(game => {
+                    featuredContainer.innerHTML += createGameElement(game, counter++);
+                });
+
+            // Render all games
+            filteredGames
+                .filter(game => !game.featured)
+                .forEach(game => {
+                    gamesContainer.innerHTML += createGameElement(game, counter++);
+                });
+        }
+
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            const filteredGames = games.filter(game => 
+                game.title.toLowerCase().includes(searchTerm) || 
+                game.description.toLowerCase().includes(searchTerm)
+            );
+            renderGames(filteredGames);
+            initializeCounters();
+        });
+
         function initializeCounters() {
             document.querySelectorAll('[id^="counter"]').forEach(counter => {
                 counter.textContent = localStorage.getItem(counter.id) || 0;
             });
         }
 
-        document.querySelectorAll('.referral-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('referral-btn')) {
                 const counterId = e.target.dataset.counter;
                 const counterEl = document.getElementById(counterId);
                 const newCount = parseInt(counterEl.textContent) + 1;
                 counterEl.textContent = newCount;
                 localStorage.setItem(counterId, newCount);
-            });
+            }
         });
 
         let isAdmin = false;
@@ -225,6 +361,8 @@
             });
         }
 
+        // Initial render
+        renderGames();
         initializeCounters();
     </script>
 </body>
