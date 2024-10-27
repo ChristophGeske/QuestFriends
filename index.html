@@ -220,264 +220,262 @@
     </div>
 
     <script>
-        // Game data array with all games
-        const games = [
+    // Game data array with all games
+    const games = [
         {
             title: "Five Nights At Freddy's 2",
-            image: "https://cdn.bio.link/uploads/thumbnails/2024-05-10/HcJ0KHw0AA34RfLzLJfgPKxI79NnVwXO.png",
+            image: "images/Five_Nights_At_Freddy's_2.png",
             link: "https://www.oculus.com/appreferrals/VR_Wizards/7156077941079207/?utm_source=oculus&utm_location=3&utm_parent=frl&utm_medium=app_referral"
         },
         {
             title: "Pavlov",
-            image: "Pavlov.png",
+            image: "images/Pavlov.png",
             link: "https://www.oculus.com/appreferrals/christoph.geske.3/2443267419018232/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
         },
         {
             title: "Assassin's Creed Nexus",
-            image: "https://cdn.bio.link/uploads/thumbnails/2023-11-16/q0HhOHkbrEMUxsESz3wS24GEVcKel3E5.png",
+            image: "images/Assassin's_Creed_Nexus.png",
             link: "https://www.oculus.com/appreferrals/christoph.geske.3/5812519008825194/?utm_source=oculus&utm_location=3&utm_parent=frl&utm_medium=app_referral"
         },
         {
             title: "The Walking Dead: Saints & Sinners",
-            image: "https://cdn.bio.link/uploads/thumbnails/2023-11-15/ez8RVKlTdxD4UBSh1U37NdNzEyAL1GZ3.png",
+            image: "images/The_Walking_Dead_Saints_&_Sinners.png",
             link: "https://tinyurl.com/574x6w2x"
         },
         {
             title: "I Expect You to Die 2",
-            image: "https://cdn.bio.link/uploads/thumbnails/2023-11-15/mIewziexYp8sylQEU2l10pT2ODVHY0TE.png",
+            image: "images/I_Expect_You_to_Die_2.png",
             link: "https://www.oculus.com/appreferrals/christoph.geske.3/2970998659623177/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
         },
         {
             title: "Moss: Book II",
-            image: "https://cdn.bio.link/uploads/thumbnails/2023-11-15/CB6YjhGRtqhgmNCYQgaIQfJ2ByFIotgK.png",
+            image: "images/Moss_Book_II.png",
             link: "https://tinyurl.com/4whak5t3"
         },
         {
             title: "Resident Evil 4",
-            image: "https://cdn.bio.link/uploads/thumbnails/2024-01-02/q9kT1XZbTQWw58jmjCBypgvXnozdnREw.png",
+            image: "images/Resident_Evil_4.png",
             link: "https://www.oculus.com/appreferrals/VR_Wizards/2637179839719680/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
         },
         {
             title: "Breachers",
-            image: "https://cdn.bio.link/uploads/thumbnails/2023-11-15/wpe5BpXYyx2jEz9fWHmTnMr4cjreOXzD.png",
+            image: "images/Breachers.png",
             link: "https://tinyurl.com/2ndk7c3r"
         },
         {
             title: "Pistol Whip",
-            image: "https://cdn.bio.link/uploads/thumbnails/2023-11-15/dbaoudbBgIAUwqWajI2AzjORLgHOVr92.png",
+            image: "images/Pistol_Whip.png",
             link: "https://tinyurl.com/3cv9f7yy"
         },
         {
             title: "Red Matter 2",
-            image: "https://cdn.bio.link/uploads/thumbnails/2023-11-15/h9ZaQnNJi58vkrNVC2jVjTVQwGm3kpL3.png",
+            image: "images/Red_Matter_2.png",
             link: "https://tinyurl.com/2857wdyu"
         },
         {
             title: "Maskmaker",
-            image: "https://cdn.bio.link/uploads/thumbnails/2023-11-15/0U6bCcCzbRxsBmwLd4KxopmRwpBfIqb5.png",
+            image: "images/Maskmaker.png",
             link: "https://www.oculus.com/appreferrals/christoph.geske.3/5028049290647430/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
         },
         {
             title: "Blade & Sorcery Nomad",
-            image: "https://cdn.bio.link/uploads/thumbnails/2023-11-15/Ems69LH8H60jCHarfvEPxn2dxpmFUIYv.png",
+            image: "images/Blade_and_Sorcery_Nomad.png",
             link: "https://www.oculus.com/appreferrals/christoph.geske.3/2031826350263349/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
         },
         {
             title: "Beat Saber",
-            image: "https://cdn.bio.link/uploads/thumbnails/2023-11-15/pgW3PWhQscv6FQooKBGpWA4RRABuwYs4.png",
+            image: "images/Beat_Saber.png",
             link: "https://tinyurl.com/4xjcerpc"
         },
         {
             title: "Warplanes: Battles over Pacific",
-            image: "https://cdn.bio.link/uploads/thumbnails/2023-11-15/qYjog6zedjrSmZuy84KTRT5pi5DGE0hU.png",
+            image: "images/Warplanes_Battles_over_Pacific.png",
             link: "https://tinyurl.com/28d3wdk8"
         },
         {
             title: "Another Fisherman's Tale",
-            image: "https://cdn.bio.link/uploads/thumbnails/2023-12-26/caEKQzbOYHhIpKvnzXUJqu89RScA1WBh.png",
+            image: "images/Another_Fisherman's_Tale.png",
             link: "https://www.oculus.com/appreferrals/VR_Wizards/4543286815791830/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
         },
         {
             title: "In Death Unchained",
-            image: "https://cdn.bio.link/uploads/thumbnails/2023-11-15/ctV1UgAZ9RuPhwsq9NQQKK3E7KxU1pcg.png",
+            image: "images/In_Death_Unchained.png",
             link: "https://www.oculus.com/appreferrals/christoph.geske.3/2334376869949242/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
         },
         {
             title: "Demeo",
-            image: "https://cdn.bio.link/uploads/thumbnails/2023-12-01/HouZAvgr9TF5wdqgGAdyYGrEmOOZAWcd.png",
+            image: "images/Demeo.png",
             link: "https://www.oculus.com/appreferrals/christoph.geske.3/3634830803298285/?utm_source=oculus&utm_location=3&utm_parent=frl&utm_medium=app_referral"
         },
         {
             title: "Ragna Rock",
-            image: "https://cdn.bio.link/uploads/thumbnails/2024-01-25/1GGt5I0Jh06Jx6IhNEUiJ5InJnyHjQkm.png",
+            image: "images/Ragna_Rock.png",
             link: "https://www.oculus.com/appreferrals/VR_Wizards/3749621795127676/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
         },
         {
             title: "Until You Fall",
-            image: "https://cdn.bio.link/uploads/thumbnails/2023-11-15/hyS7CfhJswcNK0pXk6NAbvLazPXVjRWt.png",
+            image: "images/Until_You_Fall.png",
             link: "https://tinyurl.com/y5fb6cvu"
         },
         {
             title: "Townsmen VR",
-            image: "https://cdn.bio.link/uploads/thumbnails/2024-01-15/vStIngWYnqtpOpCnP491RSqiuy5wFOQx.png",
+            image: "images/Townsmen_VR.png",
             link: "https://www.oculus.com/appreferrals/VR_Wizards/5155208571260698/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
         },
         {
             title: "Jurassic World Aftermath",
-            image: "https://cdn.bio.link/uploads/thumbnails/2023-11-15/lIVsBrmQWkRB7WEesMUcdh7AsBdaTofa.png",
+            image: "images/Jurassic_World_Aftermath.png",
             link: "https://www.oculus.com/appreferrals/christoph.geske.3/2708465082504733/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
         },
         {
             title: "Star Wars: Tales from the Galaxy's Edge",
-            image: "https://cdn.bio.link/uploads/thumbnails/2023-11-15/DkXXkNxaKtbgQb4baZD8YN2GKAPTKq6K.png",
+            image: "images/Star_Wars_Tales_from_the_Galaxys_Edge.png",
             link: "https://tinyurl.com/mrdbhdh2"
         },
         {
             title: "GORN",
-            image: "https://cdn.bio.link/uploads/thumbnails/2023-11-15/7hHVcwExd8E7HrXTyllUmhAB2lg87qUO.png",
+            image: "images/GORN.png",
             link: "https://tinyurl.com/a8zyfhf4"
         },
         {
             title: "Virtual Desktop",
-            image: "https://cdn.bio.link/uploads/thumbnails/2023-11-15/u4LTd7pN1TE3xMEAxOzB8M8xURWLHpmT.png",
+            image: "images/Virtual_Desktop.png",
             link: "https://tinyurl.com/bdee63sd"
         },
         {
             title: "Towers & Powers",
-            image: "https://cdn.bio.link/uploads/thumbnails/2024-08-01/awkSf004aGfCvQm0WDRnjCjRIOOt8JlQ.png",
+            image: "images/Towers_and_Powers.png",
             link: "https://www.meta.com/appreferrals/VR_Wizards/3535742746525560/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral/&utm_content=copy"
         },
         {
             title: "Waltz of the Wizard",
-            image: "https://cdn.bio.link/uploads/thumbnails/2023-11-15/gvcLekWcLEFxDUdXRlqX5s9Wnhn7tsmI.png",
+            image: "images/Waltz_of_the_Wizard.png",
             link: "https://www.oculus.com/appreferrals/christoph.geske.3/2280285932034855/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
         },
         {
             title: "Medal of Honor: Above and Beyond",
-            image: "https://cdn.bio.link/uploads/thumbnails/2023-11-15/d2IPE7YBpWwUccmZwiGreQ8CEt3oDFPP.png",
+            image: "images/Medal_of_Honor_Above_and_Beyond.png",
             link: "https://www.oculus.com/appreferrals/christoph.geske.3/3647259232032222/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
         },
         {
             title: "Ghost Giant",
-            image: "https://cdn.bio.link/uploads/thumbnails/2023-11-15/17Hil78NaKFoNNNq1g7z0pAgB1Serv1H.png",
+            image: "images/Ghost_Giant.png",
             link: "https://tinyurl.com/9z69myem"
         },
         {
             title: "I Expect You to Die",
-            image: "https://cdn.bio.link/uploads/thumbnails/2023-11-15/OwgvxT4n1ZIiBSpG850KGX3T7z2SrGNW.png",
+            image: "images/I_Expect_You_to_Die.png",
             link: "https://www.oculus.com/appreferrals/christoph.geske.3/1987283631365460/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
         },
         {
             title: "Blacktop Hoops",
-            image: "https://cdn.bio.link/uploads/thumbnails/2024-02-17/VeLWd1hkDmaQ6QNFTEfcdRXsarA1wU2e.png",
+            image: "images/Blacktop_Hoops.png",
             link: "https://www.oculus.com/appreferrals/VR_Wizards/4416817901687071/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
         },
         {
             title: "Brink Traveler",
-            image: "https://cdn.bio.link/uploads/thumbnails/2023-12-26/rKZIZkQMtKJtxUQjjdXupPhjo0NAtApL.png",
+            image: "images/Brink_Traveler.png",
             link: "https://www.oculus.com/appreferrals/VR_Wizards/3635172946605196/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
         },
         {
             title: "Contractors",
-            image: "https://cdn.bio.link/uploads/thumbnails/2023-11-15/l4Rlc9HuQeXVnHPoDmPZyGo1U2UtfwFD.png",
+            image: "images/Contractors.png",
             link: "https://www.oculus.com/appreferrals/christoph.geske.3/2436897736439055/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
         }
-        ];
+    ];
 
-        // Sort games alphabetically
-        games.sort((a, b) => a.title.localeCompare(b.title));
+    // Sort games alphabetically
+    games.sort((a, b) => a.title.localeCompare(b.title));
 
-        function createGameElement(game, counter) {
-            return `
-                <div class="game ${game.featured ? 'featured' : ''}">
-                    <span class="click-counter">Clicks: <span id="counter${counter}">0</span></span>
-                    <img src="${game.image}" alt="${game.title}">
-                    <div class="game-info">
-                        <h2 class="game-title">${game.title}</h2>
-                        <p>${game.description}</p>
-                        <a href="${game.link}" class="referral-btn" data-counter="counter${counter}">Get 15% Off</a>
-                    </div>
+    function createGameElement(game, counter) {
+        return `
+            <div class="game ${game.featured ? 'featured' : ''}">
+                <span class="click-counter">Clicks: <span id="counter${counter}">0</span></span>
+                <img src="${game.image}" alt="${game.title}">
+                <div class="game-info">
+                    <h2 class="game-title">${game.title}</h2>
+                    <a href="${game.link}" class="referral-btn" data-counter="counter${counter}">Get 15% Off</a>
                 </div>
-            `;
+            </div>
+        `;
+    }
+
+    function renderGames(filteredGames = games) {
+        const featuredContainer = document.getElementById('featuredContainer');
+        const gamesContainer = document.getElementById('gamesContainer');
+
+        // Clear containers
+        featuredContainer.innerHTML = '';
+        gamesContainer.innerHTML = '';
+
+        if (filteredGames.length === 0) {
+            gamesContainer.innerHTML = '<div class="no-results">No games found matching your search</div>';
+            return;
         }
 
-        function renderGames(filteredGames = games) {
-            const featuredContainer = document.getElementById('featuredContainer');
-            const gamesContainer = document.getElementById('gamesContainer');
+        let counter = 1;
 
-            // Clear containers
-            featuredContainer.innerHTML = '';
-            gamesContainer.innerHTML = '';
-
-            if (filteredGames.length === 0) {
-                gamesContainer.innerHTML = '<div class="no-results">No games found matching your search</div>';
-                return;
-            }
-
-            let counter = 1;
-
-            // Render featured games
-            filteredGames
-                .filter(game => game.featured)
-                .forEach(game => {
-                    featuredContainer.innerHTML += createGameElement(game, counter++);
-                });
-
-            // Render all games
-            filteredGames
-                .filter(game => !game.featured)
-                .forEach(game => {
-                    gamesContainer.innerHTML += createGameElement(game, counter++);
-                });
-        }
-
-        // Search functionality
-        document.getElementById('searchInput').addEventListener('input', (e) => {
-            const searchTerm = e.target.value.toLowerCase();
-            const filteredGames = games.filter(game =>
-                game.title.toLowerCase().includes(searchTerm) ||
-                game.description.toLowerCase().includes(searchTerm)
-            );
-            renderGames(filteredGames);
-            initializeCounters();
-        });
-
-        function initializeCounters() {
-            document.querySelectorAll('[id^="counter"]').forEach(counter => {
-                counter.textContent = localStorage.getItem(counter.id) || 0;
+        // Render featured games
+        filteredGames
+            .filter(game => game.featured)
+            .forEach(game => {
+                featuredContainer.innerHTML += createGameElement(game, counter++);
             });
-        }
 
-        document.addEventListener('click', (e) => {
-            if (e.target.classList.contains('referral-btn')) {
-                const counterId = e.target.dataset.counter;
-                const counterEl = document.getElementById(counterId);
-                const newCount = parseInt(counterEl.textContent) + 1;
-                counterEl.textContent = newCount;
-                localStorage.setItem(counterId, newCount);
-            }
-        });
-
-        let isAdmin = false;
-        document.addEventListener('keydown', (e) => {
-            if (e.ctrlKey && e.key === 'a') {
-                e.preventDefault();
-                isAdmin = !isAdmin;
-                document.getElementById('adminPanel').classList.toggle('visible');
-            }
-        });
-
-        function resetCounters() {
-            if (!isAdmin) return;
-            document.querySelectorAll('[id^="counter"]').forEach(counter => {
-                counter.textContent = 0;
-                localStorage.setItem(counter.id, 0);
+        // Render all games
+        filteredGames
+            .filter(game => !game.featured)
+            .forEach(game => {
+                gamesContainer.innerHTML += createGameElement(game, counter++);
             });
-        }
+    }
 
-        // Initial render
-        renderGames();
+    // Search functionality
+    document.getElementById('searchInput').addEventListener('input', (e) => {
+        const searchTerm = e.target.value.toLowerCase();
+        const filteredGames = games.filter(game =>
+            game.title.toLowerCase().includes(searchTerm)
+        );
+        renderGames(filteredGames);
         initializeCounters();
-    </script>
+    });
+
+    function initializeCounters() {
+        document.querySelectorAll('[id^="counter"]').forEach(counter => {
+            counter.textContent = localStorage.getItem(counter.id) || 0;
+        });
+    }
+
+    document.addEventListener('click', (e) => {
+        if (e.target.classList.contains('referral-btn')) {
+            const counterId = e.target.dataset.counter;
+            const counterEl = document.getElementById(counterId);
+            const newCount = parseInt(counterEl.textContent) + 1;
+            counterEl.textContent = newCount;
+            localStorage.setItem(counterId, newCount);
+        }
+    });
+
+    let isAdmin = false;
+    document.addEventListener('keydown', (e) => {
+        if (e.ctrlKey && e.key === 'a') {
+            e.preventDefault();
+            isAdmin = !isAdmin;
+            document.getElementById('adminPanel').classList.toggle('visible');
+        }
+    });
+
+    function resetCounters() {
+        if (!isAdmin) return;
+        document.querySelectorAll('[id^="counter"]').forEach(counter => {
+            counter.textContent = 0;
+            localStorage.setItem(counter.id, 0);
+        });
+    }
+
+    // Initial render
+    renderGames();
+    initializeCounters();
+</script>
 </body>
 </html>
