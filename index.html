@@ -389,94 +389,94 @@
     games.sort((a, b) => a.title.localeCompare(b.title));
 
     function createGameElement(game, counter) {
-            return `
-                <div class="game ${game.featured ? 'featured' : ''}">
-                    <span class="click-counter">Clicks: <span id="counter${counter}">0</span></span>
-                    <img src="${game.image}" alt="${game.title}">
-                    <div class="game-info">
-                        <h2 class="game-title">${game.title}</h2>
-                        <a href="${game.link}" class="referral-btn" data-counter="counter${counter}">Get 15% Off</a>
-                    </div>
+        return `
+            <div class="game ${game.featured ? 'featured' : ''}">
+                <span class="click-counter">Clicks: <span id="counter${counter}">0</span></span>
+                <img src="${game.image}" alt="${game.title}">
+                <div class="game-info">
+                    <h2 class="game-title">${game.title}</h2>
+                    <a href="${game.link}" class="referral-btn" data-counter="counter${counter}">Get 15% Off</a>
                 </div>
-            `;
+            </div>
+        `;
+    }
+
+    function renderGames(filteredGames = games) {
+        const featuredContainer = document.getElementById('featuredContainer');
+        const gamesContainer = document.getElementById('gamesContainer');
+
+        // Clear containers
+        featuredContainer.innerHTML = '';
+        gamesContainer.innerHTML = '';
+
+        if (filteredGames.length === 0) {
+            gamesContainer.innerHTML = '<div class="no-results">No games found matching your search</div>';
+            return;
         }
 
-        function renderGames(filteredGames = games) {
-            const featuredContainer = document.getElementById('featuredContainer');
-            const gamesContainer = document.getElementById('gamesContainer');
+        let counter = 1;
 
-            // Clear containers
-            featuredContainer.innerHTML = '';
-            gamesContainer.innerHTML = '';
-
-            if (filteredGames.length === 0) {
-                gamesContainer.innerHTML = '<div class="no-results">No games found matching your search</div>';
-                return;
-            }
-
-            let counter = 1;
-
-            // Render featured games
-            filteredGames
-                .filter(game => game.featured)
-                .forEach(game => {
-                    featuredContainer.innerHTML += createGameElement(game, counter++);
-                });
-
-            // Render all games
-            filteredGames
-                .filter(game => !game.featured)
-                .forEach(game => {
-                    gamesContainer.innerHTML += createGameElement(game, counter++);
-                });
-        }
-
-        // Search functionality
-        document.getElementById('searchInput').addEventListener('input', (e) => {
-            const searchTerm = e.target.value.toLowerCase();
-            const filteredGames = games.filter(game =>
-                game.title.toLowerCase().includes(searchTerm)
-            );
-            renderGames(filteredGames);
-            initializeCounters();
-        });
-
-        function initializeCounters() {
-            document.querySelectorAll('[id^="counter"]').forEach(counter => {
-                counter.textContent = localStorage.getItem(counter.id) || 0;
+        // Render featured games
+        filteredGames
+            .filter(game => game.featured)
+            .forEach(game => {
+                featuredContainer.innerHTML += createGameElement(game, counter++);
             });
-        }
 
-        document.addEventListener('click', (e) => {
-            if (e.target.classList.contains('referral-btn')) {
-                const counterId = e.target.dataset.counter;
-                const counterEl = document.getElementById(counterId);
-                const newCount = parseInt(counterEl.textContent) + 1;
-                counterEl.textContent = newCount;
-                localStorage.setItem(counterId, newCount);
-            }
-        });
-
-        let isAdmin = false;
-        document.addEventListener('keydown', (e) => {
-            if (e.ctrlKey && e.key === 'a') {
-                e.preventDefault();
-                isAdmin = !isAdmin;
-                document.getElementById('adminPanel').classList.toggle('visible');
-            }
-        });
-
-        function resetCounters() {
-            if (!isAdmin) return;
-            document.querySelectorAll('[id^="counter"]').forEach(counter => {
-                counter.textContent = 0;
-                localStorage.setItem(counter.id, 0);
+        // Render all games
+        filteredGames
+            .filter(game => !game.featured)
+            .forEach(game => {
+                gamesContainer.innerHTML += createGameElement(game, counter++);
             });
-        }
+    }
 
-        // Initial render
-        renderGames();
+    // Search functionality
+    document.getElementById('searchInput').addEventListener('input', (e) => {
+        const searchTerm = e.target.value.toLowerCase();
+        const filteredGames = games.filter(game =>
+            game.title.toLowerCase().includes(searchTerm)
+        );
+        renderGames(filteredGames);
         initializeCounters();
+    });
+
+    function initializeCounters() {
+        document.querySelectorAll('[id^="counter"]').forEach(counter => {
+            counter.textContent = localStorage.getItem(counter.id) || 0;
+        });
+    }
+
+    document.addEventListener('click', (e) => {
+        if (e.target.classList.contains('referral-btn')) {
+            const counterId = e.target.dataset.counter;
+            const counterEl = document.getElementById(counterId);
+            const newCount = parseInt(counterEl.textContent) + 1;
+            counterEl.textContent = newCount;
+            localStorage.setItem(counterId, newCount);
+        }
+    });
+
+    let isAdmin = false;
+    document.addEventListener('keydown', (e) => {
+        if (e.ctrlKey && e.key === 'a') {
+            e.preventDefault();
+            isAdmin = !isAdmin;
+            document.getElementById('adminPanel').classList.toggle('visible');
+        }
+    });
+
+    function resetCounters() {
+        if (!isAdmin) return;
+        document.querySelectorAll('[id^="counter"]').forEach(counter => {
+            counter.textContent = 0;
+            localStorage.setItem(counter.id, 0);
+        });
+    }
+
+    // Initial render
+    renderGames();
+    initializeCounters();
     </script>
 </body>
 </html>
