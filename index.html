@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -223,167 +222,169 @@
     <script>
     // Game data array with all games
     const games = [
-        {
-            title: "Five Nights At Freddy's 2",
-            image: "images/Five_Nights_At_Freddy's_2.png",
-            link: "https://www.oculus.com/appreferrals/VR_Wizards/7156077941079207/?utm_source=oculus&utm_location=3&utm_parent=frl&utm_medium=app_referral"
-        },
-        {
-            title: "Pavlov",
-            image: "images/Pavlov.png",
-            link: "https://www.oculus.com/appreferrals/christoph.geske.3/2443267419018232/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
-        },
-        {
-            title: "Assassin's Creed Nexus",
-            image: "images/Assassin's_Creed_Nexus.png",
-            link: "https://www.oculus.com/appreferrals/christoph.geske.3/5812519008825194/?utm_source=oculus&utm_location=3&utm_parent=frl&utm_medium=app_referral"
-        },
-        {
-            title: "The Walking Dead: Saints & Sinners",
-            image: "images/The_Walking_Dead_Saints_&_Sinners.png",
-            link: "https://tinyurl.com/574x6w2x"
-        },
-        {
-            title: "I Expect You to Die 2",
-            image: "images/I_Expect_You_to_Die_2.png",
-            link: "https://www.oculus.com/appreferrals/christoph.geske.3/2970998659623177/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
-        },
-        {
-            title: "Moss: Book II",
-            image: "images/Moss_Book_II.png",
-            link: "https://tinyurl.com/4whak5t3"
-        },
-        {
-            title: "Resident Evil 4",
-            image: "images/Resident_Evil_4.png",
-            link: "https://www.oculus.com/appreferrals/VR_Wizards/2637179839719680/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
-        },
-        {
-            title: "Breachers",
-            image: "images/Breachers.png",
-            link: "https://tinyurl.com/2ndk7c3r"
-        },
-        {
-            title: "Pistol Whip",
-            image: "images/Pistol_Whip.png",
-            link: "https://tinyurl.com/3cv9f7yy"
-        },
-        {
-            title: "Red Matter 2",
-            image: "images/Red_Matter_2.png",
-            link: "https://tinyurl.com/2857wdyu"
-        },
-        {
-            title: "Maskmaker",
-            image: "images/Maskmaker.png",
-            link: "https://www.oculus.com/appreferrals/christoph.geske.3/5028049290647430/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
-        },
-        {
-            title: "Blade & Sorcery Nomad",
-            image: "images/Blade_and_Sorcery_Nomad.png",
-            link: "https://www.oculus.com/appreferrals/christoph.geske.3/2031826350263349/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
-        },
-        {
-            title: "Beat Saber",
-            image: "images/Beat_Saber.png",
-            link: "https://tinyurl.com/4xjcerpc"
-        },
-        {
-            title: "Warplanes: Battles over Pacific",
-            image: "images/Warplanes_Battles_over_Pacific.png",
-            link: "https://tinyurl.com/28d3wdk8"
-        },
-        {
-            title: "Another Fisherman's Tale",
-            image: "images/Another_Fisherman's_Tale.png",
-            link: "https://www.oculus.com/appreferrals/VR_Wizards/4543286815791830/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
-        },
-        {
-            title: "In Death Unchained",
-            image: "images/In_Death_Unchained.png",
-            link: "https://www.oculus.com/appreferrals/christoph.geske.3/2334376869949242/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
-        },
-        {
-            title: "Demeo",
-            image: "images/Demeo.png",
-            link: "https://www.oculus.com/appreferrals/christoph.geske.3/3634830803298285/?utm_source=oculus&utm_location=3&utm_parent=frl&utm_medium=app_referral"
-        },
-        {
-            title: "Ragna Rock",
-            image: "images/Ragna_Rock.png",
-            link: "https://www.oculus.com/appreferrals/VR_Wizards/3749621795127676/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
-        },
-        {
-            title: "Until You Fall",
-            image: "images/Until_You_Fall.png",
-            link: "https://tinyurl.com/y5fb6cvu"
-        },
-        {
-            title: "Townsmen VR",
-            image: "images/Townsmen_VR.png",
-            link: "https://www.oculus.com/appreferrals/VR_Wizards/5155208571260698/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
-        },
-        {
-            title: "Jurassic World Aftermath",
-            image: "images/Jurassic_World_Aftermath.png",
-            link: "https://www.oculus.com/appreferrals/christoph.geske.3/2708465082504733/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
-        },
-        {
-            title: "Star Wars: Tales from the Galaxy's Edge",
-            image: "images/Star_Wars_Tales_from_the_Galaxys_Edge.png",
-            link: "https://tinyurl.com/mrdbhdh2"
-        },
-        {
-            title: "GORN",
-            image: "images/GORN.png",
-            link: "https://tinyurl.com/a8zyfhf4"
-        },
-        {
-            title: "Virtual Desktop",
-            image: "images/Virtual_Desktop.png",
-            link: "https://tinyurl.com/bdee63sd"
-        },
-        {
-            title: "Towers & Powers",
-            image: "images/Towers_and_Powers.png",
-            link: "https://www.meta.com/appreferrals/VR_Wizards/3535742746525560/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral/&utm_content=copy"
-        },
-        {
-            title: "Waltz of the Wizard",
-            image: "images/Waltz_of_the_Wizard.png",
-            link: "https://www.oculus.com/appreferrals/christoph.geske.3/2280285932034855/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
-        },
-        {
-            title: "Medal of Honor: Above and Beyond",
-            image: "images/Medal_of_Honor_Above_and_Beyond.png",
-            link: "https://www.oculus.com/appreferrals/christoph.geske.3/3647259232032222/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
-        },
-        {
-            title: "Ghost Giant",
-            image: "images/Ghost_Giant.png",
-            link: "https://tinyurl.com/9z69myem"
-        },
-        {
-            title: "I Expect You to Die",
-            image: "images/I_Expect_You_to_Die.png",
-            link: "https://www.oculus.com/appreferrals/christoph.geske.3/1987283631365460/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
-        },
-        {
-            title: "Blacktop Hoops",
-            image: "images/Blacktop_Hoops.png",
-            link: "https://www.oculus.com/appreferrals/VR_Wizards/4416817901687071/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
-        },
-        {
-            title: "Brink Traveler",
-            image: "images/Brink_Traveler.png",
-            link: "https://www.oculus.com/appreferrals/VR_Wizards/3635172946605196/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
-        },
-        {
-            title: "Contractors",
-            image: "images/Contractors.png",
-            link: "https://www.oculus.com/appreferrals/christoph.geske.3/2436897736439055/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
-        }
-    ];
+    {
+        title: "Five Nights At Freddy's 2",
+        image: "/api/placeholder/400/200.jpg",
+        link: "https://www.oculus.com/appreferrals/VR_Wizards/7156077941079207/?utm_source=oculus&utm_location=3&utm_parent=frl&utm_medium=app_referral",
+        featured: true
+    },
+    {
+        title: "Pavlov",
+        image: "/api/placeholder/400/200.jpg",
+        link: "https://www.oculus.com/appreferrals/christoph.geske.3/2443267419018232/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
+    },
+    {
+        title: "Assassin's Creed Nexus",
+        image: "/api/placeholder/400/200.jpg",
+        link: "https://www.oculus.com/appreferrals/christoph.geske.3/5812519008825194/?utm_source=oculus&utm_location=3&utm_parent=frl&utm_medium=app_referral",
+        featured: true
+    },
+    {
+        title: "The Walking Dead: Saints & Sinners",
+        image: "images/The_Walking_Dead_Saints_&_Sinners.jpg",
+        link: "https://tinyurl.com/574x6w2x"
+    },
+    {
+        title: "I Expect You to Die 2",
+        image: "images/I_Expect_You_to_Die_2.jpg",
+        link: "https://www.oculus.com/appreferrals/christoph.geske.3/2970998659623177/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
+    },
+    {
+        title: "Moss: Book II",
+        image: "images/Moss_Book_II.jpg",
+        link: "https://tinyurl.com/4whak5t3"
+    },
+    {
+        title: "Resident Evil 4",
+        image: "images/Resident_Evil_4.jpg",
+        link: "https://www.oculus.com/appreferrals/VR_Wizards/2637179839719680/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
+    },
+    {
+        title: "Breachers",
+        image: "images/Breachers.jpg",
+        link: "https://tinyurl.com/2ndk7c3r"
+    },
+    {
+        title: "Pistol Whip",
+        image: "images/Pistol_Whip.jpg",
+        link: "https://tinyurl.com/3cv9f7yy"
+    },
+    {
+        title: "Red Matter 2",
+        image: "images/Red_Matter_2.jpg",
+        link: "https://tinyurl.com/2857wdyu"
+    },
+    {
+        title: "Maskmaker",
+        image: "images/Maskmaker.jpg",
+        link: "https://www.oculus.com/appreferrals/christoph.geske.3/5028049290647430/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
+    },
+    {
+        title: "Blade & Sorcery Nomad",
+        image: "images/Blade_and_Sorcery_Nomad.jpg",
+        link: "https://www.oculus.com/appreferrals/christoph.geske.3/2031826350263349/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
+    },
+    {
+        title: "Beat Saber",
+        image: "images/Beat_Saber.jpg",
+        link: "https://tinyurl.com/4xjcerpc"
+    },
+    {
+        title: "Warplanes: Battles over Pacific",
+        image: "images/Warplanes_Battles_over_Pacific.jpg",
+        link: "https://tinyurl.com/28d3wdk8"
+    },
+    {
+        title: "Another Fisherman's Tale",
+        image: "images/Another_Fisherman's_Tale.jpg",
+        link: "https://www.oculus.com/appreferrals/VR_Wizards/4543286815791830/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
+    },
+    {
+        title: "In Death Unchained",
+        image: "images/In_Death_Unchained.jpg",
+        link: "https://www.oculus.com/appreferrals/christoph.geske.3/2334376869949242/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
+    },
+    {
+        title: "Demeo",
+        image: "images/Demeo.jpg",
+        link: "https://www.oculus.com/appreferrals/christoph.geske.3/3634830803298285/?utm_source=oculus&utm_location=3&utm_parent=frl&utm_medium=app_referral"
+    },
+    {
+        title: "Ragna Rock",
+        image: "images/Ragna_Rock.jpg",
+        link: "https://www.oculus.com/appreferrals/VR_Wizards/3749621795127676/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
+    },
+    {
+        title: "Until You Fall",
+        image: "images/Until_You_Fall.jpg",
+        link: "https://tinyurl.com/y5fb6cvu"
+    },
+    {
+        title: "Townsmen VR",
+        image: "images/Townsmen_VR.jpg",
+        link: "https://www.oculus.com/appreferrals/VR_Wizards/5155208571260698/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
+    },
+    {
+        title: "Jurassic World Aftermath",
+        image: "images/Jurassic_World_Aftermath.jpg",
+        link: "https://www.oculus.com/appreferrals/christoph.geske.3/2708465082504733/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
+    },
+    {
+        title: "Star Wars: Tales from the Galaxy's Edge",
+        image: "images/Star_Wars_Tales_from_the_Galaxys_Edge.jpg",
+        link: "https://tinyurl.com/mrdbhdh2"
+    },
+    {
+        title: "GORN",
+        image: "images/GORN.jpg",
+        link: "https://tinyurl.com/a8zyfhf4"
+    },
+    {
+        title: "Virtual Desktop",
+        image: "images/Virtual_Desktop.jpg",
+        link: "https://tinyurl.com/bdee63sd"
+    },
+    {
+        title: "Towers & Powers",
+        image: "images/Towers_and_Powers.jpg",
+        link: "https://www.meta.com/appreferrals/VR_Wizards/3535742746525560/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral/&utm_content=copy"
+    },
+    {
+        title: "Waltz of the Wizard",
+        image: "images/Waltz_of_the_Wizard.jpg",
+        link: "https://www.oculus.com/appreferrals/christoph.geske.3/2280285932034855/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
+    },
+    {
+        title: "Medal of Honor: Above and Beyond",
+        image: "images/Medal_of_Honor_Above_and_Beyond.jpg",
+        link: "https://www.oculus.com/appreferrals/christoph.geske.3/3647259232032222/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
+    },
+    {
+        title: "Ghost Giant",
+        image: "images/Ghost_Giant.jpg",
+        link: "https://tinyurl.com/9z69myem"
+    },
+    {
+        title: "I Expect You to Die",
+        image: "images/I_Expect_You_to_Die.jpg",
+        link: "https://www.oculus.com/appreferrals/christoph.geske.3/1987283631365460/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
+    },
+    {
+        title: "Blacktop Hoops",
+        image: "images/Blacktop_Hoops.jpg",
+        link: "https://www.oculus.com/appreferrals/VR_Wizards/4416817901687071/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
+    },
+    {
+        title: "Brink Traveler",
+        image: "images/Brink_Traveler.jpg",
+        link: "https://www.oculus.com/appreferrals/VR_Wizards/3635172946605196/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
+    },
+    {
+        title: "Contractors",
+        image: "images/Contractors.jpg",
+        link: "https://www.oculus.com/appreferrals/christoph.geske.3/2436897736439055/?utm_source=oculus&utm_location=2&utm_parent=frl&utm_medium=app_referral"
+    },
+];
 
     // Sort games alphabetically
     games.sort((a, b) => a.title.localeCompare(b.title));
@@ -395,7 +396,7 @@
                 <img src="${game.image}" alt="${game.title}">
                 <div class="game-info">
                     <h2 class="game-title">${game.title}</h2>
-                    <a href="${game.link}" class="referral-btn" data-counter="counter${counter}">Get 15% Off</a>
+                    <a href="${game.link}" class="referral-btn" data-counter="counter${counter}" target="_blank">Get 15% Off</a>
                 </div>
             </div>
         `;
@@ -480,3 +481,4 @@
     </script>
 </body>
 </html>
+
